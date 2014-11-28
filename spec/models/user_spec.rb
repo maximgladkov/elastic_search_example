@@ -33,14 +33,14 @@ RSpec.describe User, :type => :model do
 
     it 'returns user with date in the future' do
       users = User.search(query: { filtered: { filter: { range: { birthday_datetime: { gte: "now" } } } } }).records.to_a
-      expect(users).to eq([user_with_date_in_future])
+      expect(users).to eq([ user_with_date_in_future ])
     end
   end
 
   context 'for boolean search' do
     it 'returns user with boolean' do
       users = User.search(query: { filtered: { filter: { term: { birthday_boolean: true } } } }).records.to_a
-      expect(users).to eq([user_with_boolean])
+      expect(users).to eq([ user_with_boolean ])
     end
   end
 
